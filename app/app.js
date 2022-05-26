@@ -1,6 +1,31 @@
 (function() {
   'use strict';
 
+    function removeDuplicate(arr) {
+        var newarr = [arr[0]];
+        for (var i=1; i<arr.length; i++) {
+           if (arr[i]!=arr[i-1]) newarr.push(arr[i]);
+        }
+        return newarr.join('');
+    }
+    document.getElementById("filetoRead").addEventListener("change",function(){
+        var file = this.files[0];
+
+        if (file) {
+            var reader = new FileReader();
+
+            reader.onload = function (evt) {
+                console.log(evt);
+                document.getElementById("typefield").value = evt.target.result;
+            };
+
+            reader.onerror = function (evt) {
+                console.error("An error ocurred reading the file",evt);
+            };
+
+            reader.readAsText(file, "UTF-8");
+        }
+    },false);
   function $(id) {
     return document.getElementById(id);
   };
@@ -66,6 +91,9 @@
     if(cfg.gradient)
       config.gradient = cfg.gradient;
 
+    if (app.config.layout) {
+        cfg.layout = app.config.layout;
+    }
     app.coordinates = app.LAYOUTS[cfg.layout || "QWERTY"];
 
     var heatmap = h337.create(config);
@@ -85,7 +113,9 @@
   var lastValue = "";
 
   typeField.oninput = function() {
-    var currentValue = this.value;
+    var val = this.value,
+        valArr = val.split('');
+    var currentValue = removeDuplicate(valArr);
     if (Math.abs(lastValue.length - currentValue.length) >= 1) {
       repaintAll();
     } else {

@@ -1186,8 +1186,14 @@ app.LAYOUTS = {
         // right thumb
         "notset": [434, 336],
         "notset": [502, 293],
-        "notset": [480, 336],
-        " ": [527, 256],
+        "⎆": [490, 272], // enter
+        " ": [529, 258], // space
+        "␀": [35, 192], // L_CTRL
+        "␁": [37, 151], // SHIFT
+        "␂": [36, 111], // L_TAB
+        "␈": [272, 257], // ESCAPE
+        "␛": [337, 218], // BACKSPACE
+        // "🅂": [527, 256],
         "notset": [502, 293],
         "notset": [526, 336]
     },
@@ -1362,7 +1368,8 @@ app.LAYOUTS = {
         "notset": [526, 336]
     }
 },
-app.EXCLUDES = [" "],
+// app.EXCLUDES = [" "],
+app.EXCLUDES = [],
 app.SAMPLE_TEXT = [
     "This is the first sample text. It's an awesome sample text, but the other ones are also very nice.",
     "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
